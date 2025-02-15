@@ -1,3 +1,5 @@
+import math
+
 def poema(data_extenso, *args, **kwargs):
     texto = "\n".join(args)
     metadados = "\n".join(f"{chave}: {valor}" for chave, valor in kwargs.items())
@@ -24,3 +26,8 @@ def salario_bonus( bonus):
     return salario + bonus
 
 print(salario_bonus(500))
+
+lista_numeros = [5,8,6,12,14,7]
+pares = [x for x in lista_numeros if x % 2 == 0]
+quadrado = [math.pow(x, 2) for x in lista_numeros]
+print(pares, quadrado)
