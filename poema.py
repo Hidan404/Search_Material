@@ -31,3 +31,8 @@ lista_numeros = [5,8,6,12,14,7]
 pares = [x for x in lista_numeros if x % 2 == 0]
 quadrado = [math.pow(x, 2) for x in lista_numeros]
 print(pares, quadrado)
+
+
+
+lista = [n**2 if n > 6 else n for n in range(10) if n % 2 == 0]
+print(lista)
