@@ -6,7 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 from urllib.parse import urljoin
-from duckduckgo_search import ddg
+from duckduckgo_search import DDGS
 
 
 # Configuração do banco de dados SQLite
@@ -42,7 +42,8 @@ HEADERS_LIST = [
 def buscar_no_duckduckgo(dork, num_results=10):
     """Realiza a busca utilizando DuckDuckGo para evitar bloqueios do Google."""
     try:
-        resultados = ddg(dork, max_results=num_results)
+        with DDGS() as ddgs:
+            resultados = ddgs.text(dork, max_results=num_results)
         return [res["href"] for res in resultados if res["href"].startswith("http")]
     except Exception as e:
         print(f"[❌] Erro ao buscar no DuckDuckGo: {e}")
