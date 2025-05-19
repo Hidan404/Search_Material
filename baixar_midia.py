@@ -3,6 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+
+#Ronald 
 def criar_pasta(nome_pasta="downloads"):
     if not os.path.exists(nome_pasta):
         os.makedirs(nome_pasta)
@@ -33,7 +35,7 @@ def encontrar_midia(url, tipo):
             tags = soup.find_all("img")
         else:
             extensoes = [".gif"]
-            tags = soup.find_all("img") + soup.find_all("source")  # Algumas páginas colocam GIFs em <source>
+            tags = soup.find_all("img") + soup.find_all("source")  # Algumas páginas colocam GIFs ,lembrar disso sempre
 
         urls_midia = []
 

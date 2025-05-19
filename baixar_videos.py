@@ -3,6 +3,7 @@ import yt_dlp
 import psutil
 
 # 🔹 Reduzir prioridade do processo para evitar travamentos
+# 🔹  realizei testes de performance estava travando antes deu trablaho mas deu certo
 if os.name == "nt":  # Windows
     p = psutil.Process(os.getpid())
     p.nice(psutil.IDLE_PRIORITY_CLASS)
