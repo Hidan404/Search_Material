@@ -35,7 +35,7 @@ def baixar_video(url, formato="mp4", somente_audio=False, pasta_destino="videos"
     try:
         with yt_dlp.YoutubeDL(opcoes) as ydl:
             ydl.download([url])
-            ydl.__del__()  # Libera memória manualmente
+            
         print("\n[✅] Download concluído!")
     except Exception as e:
         print(f"\n[❌] Erro ao baixar vídeo: {e}")
