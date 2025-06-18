@@ -1,33 +1,29 @@
-import re
+# Lista para armazenar os produtos e preços
+carrinho = []
+total = 0.0
 
-# Entrada do usuário
-email = input().strip()
+# Entrada do número de itens
+n = int(input().strip())
 
-# TODO: Verifique as regras do e-mail:
+# Loop para adicionar itens ao carrinho
+for _ in range(n):
+    linha = input().strip()
+    print(linha)
+    # Encontra a última ocorrência de espaço para separar nome e preço
+    posicao_espaco = linha.rfind(" ")
+    print(posicao_espaco)
+    
+    # Separa o nome do produto e o preço
+    item = linha[:posicao_espaco]
+    print(item)
+    preco = float(linha[posicao_espaco + 1:])
+    print(preco)
 
-def validar_mail(email):
+    # Adiciona ao carrinho
+    carrinho.append((item, preco))
+    total += preco
 
-    padrao = r"^[\w\.-]+@[\w\.-]+\.com$"
-    return re.match(padrao, email) is not None
-
-'''if validar_mail(email):
-    print("E-mail válido.")
-else:
-    print("E-mail inválido.")'''
-
-
-matriz = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-print(matriz[0][2])
-print(matriz[1][1])
-
-lista_completa = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-list_parcial = [n for n in lista_completa if n % 2 == 0]
-print(list_parcial)
-
-lista_completa = lista_completa.extend(list_parcial)
-print(lista_completa)
+# TODO: Exiba os itens e o total da compra
+for item, preco in carrinho:
+    print(f"{item}: R${preco:.2f}")
+print(f"Total: R${total:.2f}")    
